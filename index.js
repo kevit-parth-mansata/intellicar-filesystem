@@ -16,7 +16,9 @@ let models = path.join(__dirname, 'models');
 fs.readdirSync(models).forEach((file) => require(path.join(models, file)));
 
 
-app.listen(config.port);
+app.listen(config.port, () => {
+    console.log(`File System app listening on port ${config.port}`);
+});
 
 app.use(
     cors({
@@ -39,8 +41,6 @@ app.use(bodyParser.json({ limit: '50mb' }));
 const file = require('./routes/file.route');
 app.use('/files', file);
 
-// mongoose.connect('mongodb://localhost/filesystem');
-// TODO - Config from .env file
 
 /**
  * Mongoose Configuration

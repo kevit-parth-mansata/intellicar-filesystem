@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router();
 const mongoose = require('mongoose');
 const File = mongoose.model('file')
-const { getFilePath } = require('./../helper/file.helper');
+const {getFilePath} = require('./../helper/file.helper');
 
 router.post('/', async (req, res) => {
     try {
@@ -16,22 +16,27 @@ router.post('/', async (req, res) => {
             status: 'SUCCESS'
         })
     } catch (e) {
-        console.log('e', e)
+        console.log('Error creating file', e)
     }
 })
 
 router.get('/:fileName', async (req, res) => {
     try {
-        const fileName = req.params.fileName;
+        const fileName = req.params.fileName || '';
         console.log(fileName);
-        const file = await File.find({name: fileName});
+        const file = await File.find({
+            name: {
+                $regex: fileName.replace(/([.?*+^$[\]\\(){}|-])/g, '\\$1'),
+                $options: 'i'
+            },
+        });
         console.log(file);
         res.status(200).send({
             data: file,
             status: 'SUCCESS'
         })
     } catch (e) {
-        console.log('e', e)
+        console.log('Error listing files', e)
     }
 })
 
@@ -46,7 +51,7 @@ router.get('/file-path/:fileId', async (req, res) => {
             status: 'SUCCESS'
         })
     } catch (e) {
-        console.log('e', e)
+        console.log('Error getting file path', e)
     }
 })
 
