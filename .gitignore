@@ -1,0 +1,9 @@
+# Node Modules
+node_modules
+
+# Environment Files
+.env
+
+# Editor Files
+.idea
+.DS_Store
