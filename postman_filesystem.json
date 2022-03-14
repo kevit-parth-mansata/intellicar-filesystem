@@ -1,0 +1,284 @@
+{
+	"info": {
+		"_postman_id": "0ccff379-0385-4aef-ad76-1e23d826a03b",
+		"name": "FileSystem",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create File",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"name\": \"abc.txt\",\n\"parentFolder\": null\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/files/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"files",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create File",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"abc.txt\",\n\"parentFolder\": null\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/files/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"files",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "Content-Disposition"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "185"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"b9-AGZJ142L9BuSY/zr8id0jjvkcEg\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 14 Mar 2022 13:08:30 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"name\": \"abc.txt\",\n        \"parentFolder\": null,\n        \"_id\": \"622f3e4ec945601a139f1f30\",\n        \"createdAt\": \"2022-03-14T13:08:30.162Z\",\n        \"updatedAt\": \"2022-03-14T13:08:30.162Z\",\n        \"__v\": 0\n    },\n    \"status\": \"SUCCESS\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Files by name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/files/aBC",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"files",
+						"aBC"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Files by name",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/files/aBC",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"files",
+								"aBC"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "Content-Disposition"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "187"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"bb-S48YA8dVFy6RWTbaBY2AWUUforo\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 14 Mar 2022 13:49:01 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"_id\": \"622f3e4ec945601a139f1f30\",\n            \"name\": \"abc.txt\",\n            \"parentFolder\": null,\n            \"createdAt\": \"2022-03-14T13:08:30.162Z\",\n            \"updatedAt\": \"2022-03-14T13:08:30.162Z\",\n            \"__v\": 0\n        }\n    ],\n    \"status\": \"SUCCESS\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get File Path by fileId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/files/file-path/622f3ed0c945601a139f1f36",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"files",
+						"file-path",
+						"622f3ed0c945601a139f1f36"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get File Path by fileId",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/files/file-path/622f3ed0c945601a139f1f36",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"files",
+								"file-path",
+								"622f3ed0c945601a139f1f36"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "Content-Disposition"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "45"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2d-ikqkyN07EmQFQnon3uij3iPV0eE\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 14 Mar 2022 13:49:33 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": \"abc.txt/def.txt\",\n    \"status\": \"SUCCESS\"\n}"
+				}
+			]
+		}
+	]
+}
